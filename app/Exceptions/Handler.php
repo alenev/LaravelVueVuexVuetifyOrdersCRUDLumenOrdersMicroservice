@@ -8,6 +8,7 @@ use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
+use App\Http\Controllers\Controller;
 
 class Handler extends ExceptionHandler
 {
@@ -49,6 +50,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
+
+    if ($exception instanceof ValidationException) {
+
+        $controller = new Controller();
+
+        return $controller->ApiResponceError(array_values($exception->errors())[0][0], 422);
+    }
+
         return parent::render($request, $exception);
     }
 }

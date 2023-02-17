@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Http\Request;
+
+use Illuminate\Validation\ValidationException;
+
 /** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
@@ -15,4 +19,14 @@
 
 $router->get('/', function () use ($router) {
     return $router->app->version();
+});
+
+$router->group(['prefix' => 'api'], function () use ($router) {
+
+$router->get('orders', 'Api\OrdersController@getAll');
+$router->get('order/{id}', 'Api\OrdersController@getOrder');
+$router->post('orders/update', '\App\Http\Controllers\Api\OrdersController@update');
+$router->delete('orders/delete', '\App\Http\Controllers\Api\OrdersController@deleteOrder');
+$router->post('orders/create', '\App\Http\Controllers\Api\OrdersController@store');
+
 });
