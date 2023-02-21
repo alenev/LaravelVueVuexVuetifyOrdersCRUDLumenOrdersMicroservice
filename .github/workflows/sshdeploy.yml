@@ -22,7 +22,7 @@ jobs:
           REMOTE_USER: "admin"
           SOURCE: ""
           TARGET: "/home/admin/web/laravelvueorderscrudlumenmicroservice.alenev.name/public_html"
-          EXCLUDE: "/.git/, /.github/, /vendor/, .env, /database/database.sqlite"
+          EXCLUDE: "/.git/, /.github/, /vendor/, .env, /database/database.sqlite, .htaccess"
     - name: Configure SSH
       run: |
           mkdir -p ~/.ssh/
