@@ -2,8 +2,6 @@
 
 ## Microservice for orders LaravelVueVuexVuetifyOrdersCRUD on Lumen (Laravel microframework)
 
-[demo](https://orders-crud.alenev.name)
-
 ### Realization 
 
 - In ```bootstrap\app.php``` registered required providers for access to orders controllers CRUD methods API points (api/orders, api/orders/create, api/orders/update, api/orders/delete)   
